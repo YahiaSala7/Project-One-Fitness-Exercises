@@ -93,7 +93,7 @@ function SearchExercises({ bodyPart, setExercises, setBodyPart }) {
       <Box sx={{ position: "relative", width: "100%", p: "20px" }}>
         <HorizontalScrollbar
           data={bodyParts}
-          bodyParts
+          isBodyPart={bodyParts}
           setBodyPart={setBodyPart}
           bodyPart={bodyPart}
         />

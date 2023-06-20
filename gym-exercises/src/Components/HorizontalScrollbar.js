@@ -12,7 +12,8 @@ import "swiper/css/scrollbar";
 import "swiper/css";
 import "../App.css";
 import { useState } from "react";
-function HorizontalScrollbar({ data, bodyPart, setBodyPart }) {
+import ExercisesCard from "./ExercisesCard";
+function HorizontalScrollbar({ data, bodyPart, setBodyPart, isBodyPart }) {
   const [numberOfSlides, setnumberOfSlides] = useState(3);
 
   return (
@@ -30,12 +31,16 @@ function HorizontalScrollbar({ data, bodyPart, setBodyPart }) {
           itemId={item.id || item}
           title={item.id || item}>
           <SwiperSlide>
-            <BodyPart
-              item={item}
-              bodyPart={bodyPart}
-              setBodyPart={setBodyPart}
-              numberOfSlides={numberOfSlides}
-            />
+            {isBodyPart ? (
+              <BodyPart
+                item={item}
+                setBodyPart={setBodyPart}
+                bodyPart={bodyPart}
+                numberOfSlides={numberOfSlides}
+              />
+            ) : (
+              <ExercisesCard exercise={item} />
+            )}
           </SwiperSlide>
         </Stack>
       ))}
